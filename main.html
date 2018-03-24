@@ -1,0 +1,157 @@
+<!--
+ _____   _           ___   _____   _   _       ___   _____   _____  __    __ 
+/  ___/ | |         /   | |  _  \ | | | |     /   | |  _  \ |  _  \ \ \  / / 
+| |___  | |        / /| | | |_| | | |_| |    / /| | | |_| | | |_| |  \ \/ /  
+\___  \ | |       / / | | |  ___/ |  _  |   / / | | |  ___/ |  ___/   \  /   
+ ___| | | |___   / /  | | | |     | | | |  / /  | | | |     | |       / /    
+/_____/ |_____| /_/   |_| |_|     |_| |_| /_/   |_| |_|     |_|      /_/   
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slap Happy!</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Rammetto+One" rel="stylesheet">
+    <link rel="icon" href="./favicon.ico">
+
+<!-- Auth ------------------------------------------------------------------------------------------ -->    
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
+ <!-- Auth ------------------------------------------------------------------------------------------ --> 
+    
+
+</head> 
+<body>
+    <div class="container-fluid">  
+        <div class="row row1col1">
+            <div class="col-s-12 col-m-8 col-l-5 projectName">
+                <h1 class="slapMeHappy">SLAP HAPPY</h1>
+                <h3>The Cure For Your Stressful Day</h3>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-s-12 col-m-12 col-l-6 mapMe">  
+               <h2 class="choose h2Me">Choose Your Stress Relief</h2>
+                <div id="mapholder">
+                        <img class="holdMe holdMe1" src="./assets/images/map1.jpg">  
+                        <iframe 
+                            class="gym maps"
+                            width="500"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAtVxpLvyMxx3H7K1TiqE0qA5AVVLQesRw&q=gyms+within12+miles&zoom=12" allowfullscreen>
+                        </iframe>
+                        <br><br>
+                        <img class="holdMe holdMe2" src="./assets/images/map2.png">
+                        <iframe
+                            class="arcades maps"
+                            width="500"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAtVxpLvyMxx3H7K1TiqE0qA5AVVLQesRw&q=arcades+within12+miles&zoom=12" allowfullscreen>
+                        </iframe>
+                        <br><br>
+                        <img class="holdMe holdMe3" src="./assets/images/map3.jpg">
+                        <iframe
+                            class="bars maps"
+                            width="500"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAtVxpLvyMxx3H7K1TiqE0qA5AVVLQesRw&q=bars+within+12+miles&zoom=12" allowfullscreen>
+                        </iframe>
+                </div>
+            </div>  
+            <div class="col-s-12 col-m-12 col-l-6 chatMe">
+                <h2 class="choose h2Me2">Worst Day Chat</h2>
+                    
+                
+<!-- Auth ------------------------------------------------------------------------------------------ --> 
+                <div id="firebaseui-auth-container"></div>
+                    <div id="loader">Loading...</div>
+<!-- Auth ------------------------------------------------------------------------------------------ --> 
+
+
+              <!--      <div class="chat">
+                        <p>Chat Placeholder</p>
+                    </div>  -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div id="postMe">
+                </div>
+            </div>
+        </div>
+    <script src="./assets/javascript/logic.js"></script>
+
+
+<!-- Auth ------------------------------------------------------------------------------------------ --> 
+    <script>
+         
+    var config = {
+        apiKey: "AIzaSyD02FpdrDWGTvM0Y3ZukdNcL6_6Qm22ZD8",
+        authDomain: "project1-1df1b.firebaseapp.com",
+        databaseURL: "https://project1-1df1b.firebaseio.com",
+        projectId: "project1-1df1b",
+        storageBucket: "project1-1df1b.appspot.com",
+        messagingSenderId: "858737507582"
+    };
+    
+    firebase.initializeApp(config);
+       
+    var uiConfig = {
+        callbacks: {
+            signInSuccess: function(currentUser, credential, redirectUrl) {
+                alert("sign in success - show the chat window")
+                return true;
+            },
+            signInFailure: function(error) {
+                return handleUIError(error);
+            },
+            uiShown: function() {
+                document.getElementById('loader').style.display = 'none';
+            }
+        },
+        credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+        queryParameterForWidgetMode: 'mode',
+        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+        signInFlow: 'popup',
+        signInSuccessUrl: 'https://olivas1406.github.io/slap/main.html',
+        signInOptions: [
+                
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            {
+                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                requireDisplayName: true
+            },
+            {
+                provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                recaptchaParameters: {
+                    type: 'image',
+                    size: 'invisible',
+                    badge: 'bottomleft'
+                }
+            }
+            ],
+    };
+       
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start('#firebaseui-auth-container', uiConfig);
+                     
+    </script>
+<!-- Auth ------------------------------------------------------------------------------------------ --> 
+
+
+
+
+</body>
+</html> 
+

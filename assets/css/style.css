@@ -1,0 +1,264 @@
+/*
+ _____   _           ___   _____   _   _       ___   _____   _____  __    __ 
+/  ___/ | |         /   | |  _  \ | | | |     /   | |  _  \ |  _  \ \ \  / / 
+| |___  | |        / /| | | |_| | | |_| |    / /| | | |_| | | |_| |  \ \/ /  
+\___  \ | |       / / | | |  ___/ |  _  |   / / | | |  ___/ |  ___/   \  /   
+ ___| | | |___   / /  | | | |     | | | |  / /  | | | |     | |       / /    
+/_____/ |_____| /_/   |_| |_|     |_| |_| /_/   |_| |_|     |_|      /_/   
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/bg.jpg");  
+    background-size: 100%;
+}
+
+.projectName {
+    font-family: 'Rammetto One', cursive;
+    background: white;
+    color: red;
+    text-align: center;
+    border: solid 2px red;
+    border-radius: 12px;
+    margin: 1% auto 2% auto;
+}
+
+.slapMeHappy {
+    padding-top: 1%;
+}
+
+.mainText {
+    text-align: center;
+}
+
+.mainImage {
+    text-align: center; 
+}
+
+.enterImg {
+    width: 35%;
+}
+
+.enterText {
+    font-family: 'Berkshire Swash', cursive;
+    text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;   
+}
+
+.whatItIs {
+    margin-left: 5%;    
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pic {
+    padding: 2%;
+    border: solid 2px darkslategray;
+    border-radius: 20px;
+    background: white;
+}
+
+.choose {
+    text-align: center;
+    font-size: 46px;
+    color: red;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+.mapMe {
+    margin-left: 9%;
+}
+  
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.chat {
+    text-align: center; 
+    border: solid 1px darkgray;
+    border-radius: 24px;
+}
+
+.holdMe {  
+    cursor: pointer;
+    border: solid 2px slategray;
+    border-radius: 25px;
+    max-width: 70%;  
+}
+
+.maps {
+    border-radius: 25px;
+    margin-left: 10%;
+}
+
+.h2Me {
+    background: white;
+    border-radius: 20px;
+    padding: 1%;
+    margin-left: 18%;
+}
+
+.chatMe {
+    margin-left: 14%; 
+}
+
+.h2Me2 {
+    background: white;
+    border-radius: 20px;
+    padding: 1%;  
+}
+
+#firebaseui-auth-container {
+    width: 100%;
+    margin-left: 20%;
+
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 1082px) {
+    .mapMe {
+        margin-left: auto;
+        margin-right: auto;      
+    }
+    .h2Me {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .maps {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .holdMe {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .h2Me2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media only screen and (max-width: 1015px) {
+    .mapMe {
+        margin-left: auto;
+        margin-right: auto;      
+    }
+    .h2Me {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .maps {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .holdMe {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .h2Me2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .holdMe {
+        margin-left: 20%;
+    }
+    .h2Me {
+        margin-left: 8%;
+    }
+    .maps {
+        margin-left: 6%;
+    }
+    .chatMe {
+        width: 100%;
+    }
+    .h2Me2 {
+        margin-left: -6%;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 940px) {
+    .holdMe {
+        margin-left: 20%;
+    }
+    .h2Me {
+        margin-left: 8%;
+    }
+    .maps {
+        margin-left: 6%;
+    }
+    .h2Me2 {
+        margin-right: -30%;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .pic {
+        max-width: 40%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .enterImg {
+        width: 40%;
+    }
+    .pic {
+        margin-top: 13%;
+        max-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .enterImg {
+        width: 80%;
+    }
+    .pic {
+        max-width: 100%; 
+    }
+    iframe {
+        width: 350px;
+        height: 200px
+    }
+    .mapMe {
+        margin-left: auto;
+        margin-right: auto;      
+    }
+    .h2Me {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .maps {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .h2Me2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
