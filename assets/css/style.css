@@ -95,8 +95,9 @@ body {
 
 .joke{
 
-    width: 11em; 
+    width: 14em; 
     word-wrap: break-word;
+    color:black;
 
 }
 
