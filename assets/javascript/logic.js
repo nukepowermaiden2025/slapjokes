@@ -45,16 +45,47 @@ $(document).ready(function(){
         $(".holdMe3").hide();                                           // Hide the image that was clicked
     });
     // /* ///////////Comedic Relief//////// */
-    $(".yomama-btn").on("click", function() {
-        console.log("you clicked me");
+    $(".yomama-btn").on("click", function() {                           //Yomama on click fire off ajax request to basic api
+        console.log("you clicked yomama");
         const queryURL= "https://api.apithis.net/yomama.php";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function(response) {
+            console.log(response);
+            $(".joke-display").empty();
+            $(".joke-display").addClass("joke warning");
+            $(".joke-display").text(response);                          //The response comes back as text
+          });
+        
+    });
+
+    $(".dad-btn").on("click", function() {
+        console.log("you clicked dad");
+        const queryURL= "https://icanhazdadjoke.com/";                  //Dad on click fire off ajax request to basic api
+        $.ajax({
+            url: queryURL,
+            dataType: 'json',                                           //Argument to specify which datatype to return
+            method: "GET"
+          }).then(function(response) { 
+            console.log(response.joke);
+            $(".joke-display").empty();
+            $(".joke-display").addClass("joke warning");
+            $(".joke-display").text(response.joke);                     //The response comes back as json 
+          });
+        
+    });
+
+    $(".norris-btn").on("click", function() {
+        console.log("you clicked norris");
+        const queryURL= "norris-btn";
         $.ajax({
             url: queryURL,
             method: "GET"
           }).then(function(response) {
             //after a response from yomama api
             console.log(response);
-            $(".joke-display").text("");
+            $(".joke-display").empty();
             $(".joke-display").addClass("joke warning");
             $(".joke-display").text(response);
           });
