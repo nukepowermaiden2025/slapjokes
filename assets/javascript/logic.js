@@ -44,11 +44,47 @@ $(document).ready(function(){
         $(".bars").show();                                              // Show the map with local bars
         $(".holdMe3").hide();                                           // Hide the image that was clicked
     });
-    
-
+    // /* ///////////Comedic Relief//////// */
+    $(".yomama-btn").on("click", function() {
+        console.log("you clicked me");
+        const queryURL= "https://api.apithis.net/yomama.php";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function(response) {
+            //after a response from giphy do something with the respnse
+            console.log(response);
+            $(".joke-display").prepend()
+            // With each of the max ten responses in response back from giphy
+            // for (var i = 0; i < responses.length; i++) {
+            // //   if (responses[i].rating !== "r" && responses[i].rating !== "pg-13") {
+            //     var $div = $("<div>"); //create img
+            //     response.addClass("warning");//selector for the pausing established
+            //     placeimg.attr({
+            //       //Link those items to the page with a data-img on an attribute
+            //       "data-animate": responses[i].images.fixed_height.url, //add animate
+            //       "data-still": responses[i].images.fixed_height_still.url, //add the still
+            //       "data-state": "moving",
+            //       src: "",
+            //       width: 400,
+            //       height: 175,
+            //       "margin-left": 5,
+            //       "margin-right": 5,
+            //       "margin-top": 10
+            //     });
+            //     $(placeimg).attr("src", responses[i].images.fixed_height.url);
+            //     $("#gifdiv").prepend(placeimg);
+            //     renderButtons();
+            //   }
+            // }
+          });
+        
+    });
+    // /* ///////////Comedic Relief//////// */
+   
 
   
-  });
+});
   
  
   
