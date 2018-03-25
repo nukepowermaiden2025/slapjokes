@@ -67,27 +67,29 @@ $(document).ready(function(){
             url: queryURL,
             dataType: 'json',                                           //Argument to specify which datatype to return
             method: "GET"
-          }).then(function(response) { 
-            console.log(response.joke);
+          }).then(function(response) {
+            let result = response.joke 
+            console.log(result);
             $(".joke-display").empty();
             $(".joke-display").addClass("joke warning");
-            $(".joke-display").text(response.joke);                     //The response comes back as json 
+            $(".joke-display").text(result);                            //The response comes back as json 
           });
         
     });
 
-    $(".norris-btn").on("click", function() {
+    $(".norris-btn").on("click", function() {                           //Chuck Norris click fire off ajax erquest to basic api
         console.log("you clicked norris");
-        const queryURL= "norris-btn";
+        const queryURL= "http://api.icndb.com/jokes/random?exclude=[explicit]";
         $.ajax({
             url: queryURL,
             method: "GET"
-          }).then(function(response) {
-            //after a response from yomama api
-            console.log(response);
+          }).then(function(response) { 
+            
+            let result = response.value.joke
+            console.log(result);
             $(".joke-display").empty();
             $(".joke-display").addClass("joke warning");
-            $(".joke-display").text(response);
+            $(".joke-display").text(result);                            //Grab joke from json object 
           });
         
     });
